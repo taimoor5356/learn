@@ -27,7 +27,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 my-2">
                     <div class="d-flex justify-content-between">
                         <label for="" class="text-white">Select Category</label>
-                        <input class="mb-2 bg-dark text-white border border-secondary rounded" type="text" id="categories-search-input" placeholder="Search...">
+                        <input class="mb-2 bg-dark text-white border border-secondary rounded" type="text" id="categories-search-input" placeholder="Search Category...">
                     </div>
                     <select name="category" id="category" class="form-control bg-dark text-white border border-secondary" multiple style="height: 150px">
                         <option value="" disabled>Select category</option>
@@ -39,7 +39,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 my-2">
                     <div class="d-flex justify-content-between">
                         <label for="" class="text-white">Select Question</label>
-                        <input class="mb-2 bg-dark text-white border border-secondary rounded" type="text" id="question-search-input" placeholder="Search...">
+                        <input class="mb-2 bg-dark text-white border border-secondary rounded" type="text" id="question-search-input" placeholder="Search Question...">
                     </div>
                     <select name="question" id="question" class="form-control bg-dark text-white border border-secondary" multiple style="height: 225px">
                         <option value="" disabled>Select question</option>
