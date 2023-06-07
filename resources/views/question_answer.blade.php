@@ -1,17 +1,16 @@
 @extends('app')
 @section('title', 'Ques-Ans')
 @section('content')
-    <div class="container my-0">
-        <div class="col-lg-12 col-md-12 col-sm-12 my-0 d-flex justify-content-between">
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#questionAnswerModal">Add New
-                    Question-Answer</button>
-                <button class="btn btn-danger" disabled>Disabled</button>
-            <button class="btn btn-primary" data-question-id="" id="refresh-answer">Refresh Answer</button>
+    <div class="container-fluid my-0 p-0">
+        <div class="col-lg-12 col-md-12 col-sm-12 my-0 d-flex">
+            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#questionAnswerModal">Add New
+                Question-Answer</button>
+            <button class="btn btn-secondary ms-auto" data-question-id="" id="refresh-answer">Refresh Answer</button>
         </div>
     </div>
-    <div class="container my-2 border border-default rounded">
+    <div class="container-fluid my-2 border border-secondary rounded">
         <div class="row">
-            <div class="col-lg-5 col-md-5 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-12">
                 <span class="close-alert-message alert-message">
                     @if (session()->has('success'))
                         <div class="alert alert-success">
@@ -27,10 +26,10 @@
                 </span>
                 <div class="col-lg-12 col-md-12 col-sm-12 my-2">
                     <div class="d-flex justify-content-between">
-                        <label for="">Categories</label>
-                        <input class="mb-2" type="text" id="categories-search-input" placeholder="Search...">
+                        <label for="" class="text-white">Select Category</label>
+                        <input class="mb-2 bg-dark text-white border border-secondary rounded" type="text" id="categories-search-input" placeholder="Search...">
                     </div>
-                    <select name="category" id="category" class="form-control" multiple style="height: 150px">
+                    <select name="category" id="category" class="form-control bg-dark text-white border border-secondary" multiple style="height: 150px">
                         <option value="" disabled>Select category</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -39,31 +38,32 @@
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 my-2">
                     <div class="d-flex justify-content-between">
-                        <label for="">Questions</label>
-                        <input class="mb-2" type="text" id="question-search-input" placeholder="Search...">
+                        <label for="" class="text-white">Select Question</label>
+                        <input class="mb-2 bg-dark text-white border border-secondary rounded" type="text" id="question-search-input" placeholder="Search...">
                     </div>
-                    <select name="question" id="question" class="form-control" multiple style="height: 190px">
+                    <select name="question" id="question" class="form-control bg-dark text-white border border-secondary" multiple style="height: 225px">
                         <option value="" disabled>Select question</option>
                     </select>
                 </div>
             </div>
-            <div class="col-lg-7 col-md-7 col-sm-12 my-2">
-                <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-between">
-                    <span id="show-question">
+            <div class="col-lg-8 col-md-8 col-sm-12 my-2">
+                <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+                    <img class="category-image" src="{{asset('public/assets/img/user-avatar.png')}}" height="30px" width="30px" alt="">
+                    <span class="text-white mx-2" id="show-question">
 
                     </span>
                 </div>
                 <hr>
                 <div class="col-lg-12 col-md-12 col-sm-12 my-2">
                     <label for="">Answer</label>
-                    <textarea id="answer" rows="15" class="form-control bg-dark text-white"></textarea>
+                    <textarea id="answer" rows="15" class="form-control bg-dark text-white border border-secondary"></textarea>
                 </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
-                        {{-- <button type="button" class="btn btn-warning me-auto" data-answer-id="" id="change-color">Change color</button> --}}
-                        <span class="d-none mx-2 mt-2 updated-response-message"></span>
-                        <button type="button" class="btn btn-success ml-2" data-answer-id="" id="update-answer"> Update
-                            Answer</button>
-                    </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-end">
+                    {{-- <button type="button" class="btn btn-warning me-auto" data-answer-id="" id="change-color">Change color</button> --}}
+                    <span class="d-none mx-2 mt-2 updated-response-message text-white"></span>
+                    <button type="button" class="btn btn-success ml-2" data-answer-id="" id="update-answer"> Update
+                        Answer</button>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -74,7 +74,7 @@
     <div class="modal fade" id="questionAnswerModal" tabindex="-1" role="dialog"
         aria-labelledby="questionAnswerModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
+            <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h5 class="modal-title" id="questionAnswerModalLabel">Add New Question-Answer</h5>
                     <button type="button" class="close btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
@@ -82,21 +82,21 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('store-question-answer')}}" method="post">
+                    <form action="{{ route('store-question-answer') }}" method="post">
                         @csrf
-                        <select name="category_id" id="category-id" class="form-control">
+                        <select name="category_id" id="category-id" class="form-control bg-dark text-white">
                             <option value="" disabled selected>Select category</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                         <br>
-                        <input type="text" name="question" id="modal-question" class="form-control"
+                        <input type="text" name="question" id="modal-question" class="form-control bg-dark text-white"
                             placeholder="Enter question">
                         <br>
-                        <textarea rows="10" name="answer" id="answer" class="form-control" placeholder="Enter answer"></textarea>
+                        <textarea rows="10" name="answer" id="answer" class="form-control bg-dark text-white" placeholder="Enter answer"></textarea>
                         <br>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-success">Save</button>
                     </form>
                 </div>
             </div>
@@ -145,6 +145,9 @@
                         if (response.status == true) {
                             $('#answer').val(response.data.answer);
                             $('#update-answer').attr('data-answer-id', response.data.id);
+                            let imageUrl = "{{asset('public/assets/img/:image')}}";
+                            imageUrl = imageUrl.replace(':image', response.data.question.category.image);
+                            $('.category-image').attr('src', imageUrl);
                         }
                     }
                 });

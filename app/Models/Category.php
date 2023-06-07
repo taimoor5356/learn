@@ -12,6 +12,11 @@ class Category extends Model
 
     protected $guarded = [''];
 
+    public function questions()
+    {
+        return $this->hasMany(Question::class, 'question_id', 'id');
+    }
+
     public function setAttribute($key, $value)
     {
         if ($key == 'name') {

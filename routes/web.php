@@ -16,11 +16,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [QuestionAnswerController::class, 'index']);
 Route::get('/learn', [QuestionAnswerController::class, 'index'])->name('questions_answers');
 Route::get('/categories', [CategoryController::class, 'index'])->name('cateories');
 Route::post('/category/store', [CategoryController::class, 'store']);

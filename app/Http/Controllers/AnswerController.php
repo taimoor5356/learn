@@ -99,13 +99,14 @@ class AnswerController extends Controller
     public function fetchAnswers(Request $request)
     {
         try {
-            $answer = Answer::where('question_id', $request->question_id)->first();
+            $answer = Answer::with('question.category')->where('question_id', $request->question_id)->first();
             if (isset($answer)) {
                 return response()->json(['status' => true, 'msg' => 'Data found', 'data' => $answer]);
             } else {
                 return response()->json(['status' => false, 'msg' => 'No answer found', 'data' => []]);
             }
         } catch (\Exception $e) {
+            dd($e);
             return response()->json(['status' => false, 'msg' => 'Something went wrong', 'data' => []]);
         }
     }

@@ -17,14 +17,14 @@
     </style>
 </head>
 
-<body>
-    <div class="container d-flex border border-default rounded my-2">
+<body class="bg-dark">
+    <div class="container-fluid d-flex border border-secondary rounded my-2">
         <div class="container d-flex justify-content-start p-0">
-            <a href="{{route('questions_answers')}}" class="learn-links">Ques-Answers</a>
-            <a href="{{route('cateories')}}" class="learn-links">Categories</a>
+            <a href="{{route('questions_answers')}}" class="learn-links text-white">Ques-Answers</a>
+            <a href="{{route('cateories')}}" class="learn-links text-white">Categories</a>
         </div>
-        <div class="container d-flex justify-content-end p-0">
-            <a href="#" class="learn-links text-danger">Logout</a>
+        <div class="container-fluid d-flex justify-content-end p-0">
+            <a href="#" class="learn-links text-white">Logout</a>
         </div>
 
     </div>
