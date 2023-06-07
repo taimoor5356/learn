@@ -3,14 +3,12 @@
 @section('title', 'Categories')
 
 @section('content')
-    <div class="container my-0 p-0">
-        @if (Auth::user())
+    <div class="container-fluid my-0 p-0">
             <div class="my-2">
-                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal">Add New Category</a>
+                <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#categoryModal">Add New Category</a>
             </div>
-        @endif
     </div>
-    <div class="container my-2 p-0 rounded">
+    <div class="container-fluid my-2 p-0 border border-secondary rounded">
         <span class="alert-message">
             @if (session()->has('success'))
                 <div class="alert alert-success">
@@ -22,14 +20,14 @@
                 </div>
             @endif
         </span>
-        <table class="table table-striped table-hover my-2 border border-default rounded">
+        <table class="table table-hover my-2 text-white">
             <thead>
                 <th>Category</th>
             </thead>
             <tbody>
                 @foreach ($categories as $category)
                     <tr>
-                        <td>{{ $category->name }}</td>
+                        <td class="text-white">{{ $category->name }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -42,7 +40,7 @@
     <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h5 class="modal-title" id="categoryModalLabel">Add New Category</h5>
                     <button type="button" class="close btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
@@ -52,10 +50,10 @@
                 <div class="modal-body">
                     <form action="/category/store" method="post">
                         @csrf
-                        <input type="text" name="name" id="category-name" class="form-control"
+                        <input type="text" name="name" id="category-name" class="form-control bg-dark text-white"
                             placeholder="Enter category name">
                         <br>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-success">Save</button>
                     </form>
                 </div>
             </div>
