@@ -21,10 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/learn', [QuestionAnswerController::class, 'index'])->name('questions_answers');
 Route::get('/categories', [CategoryController::class, 'index'])->name('cateories');
 Route::post('/category/store', [CategoryController::class, 'store']);
 Route::post('/question-answer/store', [QuestionAnswerController::class, 'store'])->name('store-question-answer');
-Route::get('/learn', [QuestionAnswerController::class, 'index'])->name('questions_answers');
 Route::post('/fetch-questions', [QuestionController::class, 'fetchQuestions'])->name('fetch_questions');
 Route::post('/fetch-answers', [AnswerController::class, 'fetchAnswers'])->name('fetch_answers');
 Route::post('/update-answer', [AnswerController::class, 'update'])->name('update_answer');
