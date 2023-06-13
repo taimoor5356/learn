@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [QuestionAnswerController::class, 'index']);
 Route::get('/learn', [QuestionAnswerController::class, 'index'])->name('questions_answers');
 Route::get('/categories', [CategoryController::class, 'index'])->name('cateories');
-Route::post('/category/store', [CategoryController::class, 'store']);
+Route::post('/category/store', [CategoryController::class, 'store'])->name('category_store');
 Route::post('/question-answer/store', [QuestionAnswerController::class, 'store'])->name('store-question-answer');
 Route::post('/fetch-questions', [QuestionController::class, 'fetchQuestions'])->name('fetch_questions');
 Route::post('/fetch-answers', [AnswerController::class, 'fetchAnswers'])->name('fetch_answers');

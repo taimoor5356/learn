@@ -48,7 +48,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="/category/store" method="post">
+                    <form action="{{route('category_store')}}" method="post">
                         @csrf
                         <input type="text" name="name" id="category-name" class="form-control bg-dark text-white"
                             placeholder="Enter category name">
