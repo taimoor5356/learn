@@ -41,7 +41,6 @@ class QuestionAnswerController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request->all());
         $request->validate([
             'question' => 'required|string',
             'answer' => 'required|string',
