@@ -82,7 +82,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('store-question-answer') }}" method="post">
+                    <form action="{{ route('store_question_answer') }}" method="post">
                         @csrf
                         <select name="category_id" id="category-id" class="form-control bg-dark text-white">
                             <option value="" disabled selected>Select category</option>
